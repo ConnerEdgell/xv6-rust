@@ -82,6 +82,12 @@ argstr(int n, char **pp)
   return fetchstr(addr, pp);
 }
 
+int
+sys_wcupa(void)
+{
+  return 1871;
+}
+
 extern int sys_chdir(void);
 extern int sys_close(void);
 extern int sys_dup(void);
@@ -103,6 +109,7 @@ extern int sys_unlink(void);
 extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
+extern int sys_wcupa(void);
 #ifdef PDX_XV6
 extern int sys_halt(void);
 #endif // PDX_XV6
@@ -129,6 +136,7 @@ static int (*syscalls[])(void) = {
 [SYS_link]    sys_link,
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
+[SYS_wcupa] sys_wcupa,
 #ifdef PDX_XV6
 [SYS_halt]    sys_halt,
 #endif // PDX_XV6
